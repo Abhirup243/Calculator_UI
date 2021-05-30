@@ -6,6 +6,7 @@ import Title from "./Ttile";
 let Calculator =()=>{
    let [query,setQuery]=useState("");
     let [answer,setAnswer]=useState("");
+    let arr=["Clear","Delete",".","/","7","8","9","*","4","5","6","-","1","2","3","+","0","="];
 
     let clickHandler=(e)=>{
         let value=e.target.value;
@@ -38,36 +39,11 @@ let Calculator =()=>{
     }
 
     return (
-        <div>
+        <div className="container">
             <Title />
             <OutputScreen answer={answer} query={query}/>
-            <div>
-            <Button clickHandler={clickHandler} value="Clear"/>
-            <Button clickHandler={clickHandler} value="Delete"/>
-            <Button clickHandler={clickHandler} value="."/>
-            <Button clickHandler={clickHandler} value="/"/>
-            </div>
-            <div>
-            <Button clickHandler={clickHandler} value="7"/>
-            <Button clickHandler={clickHandler} value="8"/>
-            <Button clickHandler={clickHandler} value="9"/>
-            <Button clickHandler={clickHandler} value="*"/>
-            </div>
-            <div>
-            <Button clickHandler={clickHandler} value="4"/>
-            <Button clickHandler={clickHandler} value="5"/>
-            <Button clickHandler={clickHandler} value="6"/>
-            <Button clickHandler={clickHandler} value="-"/>
-            </div>
-            <div>
-            <Button clickHandler={clickHandler} value="1"/>
-            <Button clickHandler={clickHandler} value="2"/>
-            <Button clickHandler={clickHandler} value="3"/>
-            <Button clickHandler={clickHandler} value="+"/>
-            </div>
-            <div>
-            <Button clickHandler={clickHandler} value="0"/>
-            <Button clickHandler={clickHandler} value="="/>
+            <div className="keypad">
+                { arr.map(item=>(<Button clickHandler={clickHandler} value={item}/> ))}  
             </div>
         </div>
     )
