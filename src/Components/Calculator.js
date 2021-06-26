@@ -6,12 +6,12 @@ import Title from "./Ttile";
 let Calculator =()=>{
    let [query,setQuery]=useState("");
     let [answer,setAnswer]=useState("");
-    let arr=["Clear","Delete",".","/","7","8","9","*","4","5","6","-","1","2","3","+","0","="];
+    let arr=["Clear","Delete","/","7","8","9","*","4","5","6","-","1","2","3","+","0",".","Result"];
 
     let clickHandler=(e)=>{
         let value=e.target.value;
         switch(value){
-            case "=":{
+            case "Result":{
                 let result="";
                 try{
                  result=eval(query);
@@ -39,13 +39,15 @@ let Calculator =()=>{
     }
 
     return (
+        <>
+        <Title />
         <div className="container">
-            <Title />
             <OutputScreen answer={answer} query={query}/>
             <div className="keypad">
                 { arr.map(item=>(<Button clickHandler={clickHandler} value={item}/> ))}  
             </div>
         </div>
+        </>
     )
 }
 
